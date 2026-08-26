@@ -1,0 +1,9 @@
+name: no_encryption
+policy: none
+num_clients: 5
+num_rounds: 20
+local_epochs: 2
+attack_start_round: 8
+attack_end_round: 14
+byzantine_clients: [3]
+attack_type: noise

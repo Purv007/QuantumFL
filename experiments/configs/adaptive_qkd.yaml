@@ -1,0 +1,10 @@
+name: adaptive_qkd
+policy: adaptive
+num_clients: 5
+num_rounds: 20
+local_epochs: 2
+attack_start_round: 8
+attack_end_round: 14
+eve_intercept_prob: 1.0
+byzantine_clients: [3]
+attack_type: noise

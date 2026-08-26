@@ -1,0 +1,11 @@
+name: fixed_qkd
+policy: fixed
+num_clients: 5
+num_rounds: 20
+local_epochs: 2
+key_interval: 3
+attack_start_round: 8
+attack_end_round: 14
+eve_intercept_prob: 1.0
+byzantine_clients: [3]
+attack_type: noise
