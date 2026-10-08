@@ -225,6 +225,14 @@ def load_metrics():
 
     return all_data
 
+def hex_to_rgba(hex_color, opacity=0.12):
+    """Convert hex color to rgba string for Plotly fill."""
+    hex_color = hex_color.lstrip('#')
+    if len(hex_color) == 3:
+        hex_color = ''.join(c * 2 for c in hex_color)
+    r, g, b = int(hex_color[0:2], 16), int(hex_color[2:4], 16), int(hex_color[4:6], 16)
+    return f"rgba({r},{g},{b},{opacity})"
+
 
 @st.cache_data(ttl=30)
 def load_db_data():
@@ -582,7 +590,7 @@ elif page == "📡 Communication":
                     mode="lines+markers",
                     name=POLICY_NAMES.get(exp_name, exp_name),
                     line=dict(color=COLORS.get(exp_name, "#888"), width=2),
-                    fill="tozeroy", fillcolor=COLORS.get(exp_name, "#888") + "20",
+                    fill="tozeroy", fillcolor=hex_to_rgba(COLORS.get(exp_name, "#888888")),
                 ))
     
     st.plotly_chart(fig_bytes, use_container_width=True)
